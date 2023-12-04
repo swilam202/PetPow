@@ -66,3 +66,7 @@ Future<void> takeGalleryImage(BuildContext context) async {
       await imagePicker.pickImage(source: ImageSource.gallery);
   await predictAndNavigate(capturedImage, context, Types.gallery);
 }
+
+
+
+

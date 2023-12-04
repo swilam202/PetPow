@@ -8,9 +8,13 @@ import 'package:objectdetection/utils/functions.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
 import 'pages/home page.dart';
+import 'pages/stream page.dart';
+
+List<CameraDescription>? cameras;
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   await loadModel();
   runApp(const MyApp());
 }
@@ -25,7 +29,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.teal,
         scaffoldBackgroundColor: Color(0xFFE3E3E3),
       ),
-      home: const SplashPage(),
+      home: const StreamPage(),
     );
   }
 }
