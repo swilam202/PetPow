@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../utils/types.dart';
+import '../widgets/custom button.dart';
+
+
+
 
 class HoemPage2 extends StatefulWidget {
   const HoemPage2({super.key});
@@ -21,8 +26,13 @@ class _HoemPage2State extends State<HoemPage2> {
             child: AspectRatio(
               aspectRatio: 2,
               child: Image.asset('assets/image.png',fit: BoxFit.fill,),),),
+              const CustomButton(type: Types.camera),
+              const CustomButton(type: Types.gallery),
+              const CustomButton(type: Types.video),
+
         ],
       ),
     );
   }
 }
+
