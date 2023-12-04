@@ -1,31 +1,44 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:objectdetection/pages/image%20result%20page.dart';
+
+import '../utils/functions.dart';
 import '../utils/types.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomButton extends StatefulWidget {
   const CustomButton({
     super.key,
     required this.type,
   });
   final Types type;
+
+  @override
+  State<CustomButton> createState() => _CustomButtonState();
+}
+
+class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
+
     return Row(
       children: [
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
             child: ElevatedButton.icon(
-              onPressed: () {},
-              label: Text(type == Types.camera
+              onPressed: () => takeCameraImage(context),
+              label: Text(widget.type == Types.camera
                   ? 'Camera'
-                  : type == Types.gallery
+                  : widget.type == Types.gallery
                       ? 'Gallery'
                       : 'Video'),
               icon: Icon(
-                type == Types.camera
+                widget.type == Types.camera
                     ? Icons.camera
-                    : type == Types.gallery
+                    : widget.type == Types.gallery
                         ? Icons.image
                         : Icons.video_call,
               ),
