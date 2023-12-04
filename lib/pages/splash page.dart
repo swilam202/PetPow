@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:objectdetection/main.dart';
 
+import 'home page.dart';
+
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
@@ -46,7 +48,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 ).then(
                   (_) => Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => const HomePage(),
+                      builder: (context) => const HoemPage2(),
                     ),
                   ),
                 ),

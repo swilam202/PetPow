@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.teal,
         scaffoldBackgroundColor: Color(0xFFE3E3E3),
       ),
-      home: const HoemPage2(),
+      home: const SplashPage(),
     );
   }
 }
