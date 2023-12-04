@@ -8,7 +8,7 @@ import 'package:objectdetection/pages/image%20result%20page.dart';
 import '../utils/functions.dart';
 import '../utils/types.dart';
 
-class CustomButton extends StatefulWidget {
+class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.type,
@@ -16,29 +16,29 @@ class CustomButton extends StatefulWidget {
   final Types type;
 
   @override
-  State<CustomButton> createState() => _CustomButtonState();
-}
-
-class _CustomButtonState extends State<CustomButton> {
-  @override
   Widget build(BuildContext context) {
-
     return Row(
       children: [
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
             child: ElevatedButton.icon(
-              onPressed: () => takeCameraImage(context),
-              label: Text(widget.type == Types.camera
+              onPressed: () async{
+                switch(type){
+                  case Types.camera: takeCameraImage(context); break;
+                  case Types.gallery: takeGalleryImage(context); break;
+                  case Types.video: takeCameraImage(context); break;
+                }
+              },
+              label: Text(type == Types.camera
                   ? 'Camera'
-                  : widget.type == Types.gallery
+                  : type == Types.gallery
                       ? 'Gallery'
-                      : 'Video'),
+                      : 'Video',),
               icon: Icon(
-                widget.type == Types.camera
+                type == Types.camera
                     ? Icons.camera
-                    : widget.type == Types.gallery
+                    : type == Types.gallery
                         ? Icons.image
                         : Icons.video_call,
               ),

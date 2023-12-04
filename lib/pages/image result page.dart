@@ -9,11 +9,15 @@ import '../widgets/image result button row.dart';
 class ImageResultPage extends StatelessWidget {
   const ImageResultPage({
     super.key,
-    required this.file,
+    required this.image,
     required this.type,
+    required this.prediction,
+    this.percent,
   });
-  final File file;
+  final File image;
   final Types type;
+  final String prediction;
+  final double? percent;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,19 +39,37 @@ class ImageResultPage extends StatelessWidget {
                 ),
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: Image.file(
-                  file,
+                  image,
                   fit: BoxFit.fill,
                 ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              Text('Cat',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.teal),),
+              Text(
+                prediction,
+                style: const TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.teal),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
+              ),
+              Text(
+                percent == null
+                    ? ''
+                    : 'Confidence: ${percent!.toStringAsFixed(1)}%',
+                style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.teal),
+              ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
               ImageResultButtonRow(type: type),
-           ],
+            ],
           ),
         ),
       ),

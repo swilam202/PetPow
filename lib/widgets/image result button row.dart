@@ -5,7 +5,10 @@ import 'package:objectdetection/utils/types.dart';
 import '../pages/home page.dart';
 
 class ImageResultButtonRow extends StatelessWidget {
-  const ImageResultButtonRow({super.key,required this.type,});
+  const ImageResultButtonRow({
+    super.key,
+    required this.type,
+  });
   final Types type;
   @override
   Widget build(BuildContext context) {
@@ -14,10 +17,14 @@ class ImageResultButtonRow extends StatelessWidget {
         Expanded(
           child: ElevatedButton.icon(
             onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HoemPage2(),),);
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const HoemPage2(),
+                ),
+              );
             },
-            label: Text('Go to Home Page'),
-            icon: Icon(Icons.arrow_back_ios_new),
+            label: const Text('Go to Home Page'),
+            icon: const Icon(Icons.arrow_back_ios_new),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.teal),
               padding: MaterialStateProperty.all(
@@ -31,12 +38,12 @@ class ImageResultButtonRow extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         Expanded(
           child: ElevatedButton.icon(
-            onPressed: () =>takeCameraImage(context),
-            label: Text('Take new Image'),
-            icon: Icon(Icons.add),
+            onPressed: () => takeCameraImage(context),
+            label: const Text('Take new Image'),
+            icon: const Icon(Icons.add),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.teal),
               padding: MaterialStateProperty.all(
@@ -50,8 +57,6 @@ class ImageResultButtonRow extends StatelessWidget {
             ),
           ),
         ),
-        
-        
       ],
     );
   }

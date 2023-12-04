@@ -4,11 +4,14 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:objectdetection/pages/splash%20page.dart';
+import 'package:objectdetection/utils/functions.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
 import 'pages/home page.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await loadModel();
   runApp(const MyApp());
 }
 
