@@ -51,7 +51,7 @@ class ImageResultPage extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.w900,
-                    color: Colors.teal),
+                    color: Colors.teal,),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
@@ -59,7 +59,7 @@ class ImageResultPage extends StatelessWidget {
               Text(
                 percent == null
                     ? ''
-                    : 'Confidence: ${percent!.toStringAsFixed(1)}%',
+                    : 'Confidence: ${(percent! * 100).toStringAsFixed(2)}%',
                 style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
