@@ -6,6 +6,7 @@ import 'package:objectdetection/utils/types.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
 import '../pages/image result page.dart';
+import '../pages/video stream page.dart';
 
 final ImagePicker imagePicker = ImagePicker();
 
@@ -15,8 +16,6 @@ Future<void> loadModel() async {
     labels: 'assets/model/labels.txt',
     isAsset: true,
   );
-
-  print('Loaded ++++++++++++++++++++++++++++++++++++');
 }
 //[{confidence: 1.0, index: 1, label: 1 Cat}]
 
@@ -41,32 +40,41 @@ Future<void> predictAndNavigate(
       percent = predictionList[0]['confidence'];
     }
 
-    print(predictionList);
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => ImageResultPage(
-          image: image,
-          type: type,
-          percent: percent,
-          prediction: prediction,
+    if (context.mounted) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => ImageResultPage(
+            image: image,
+            type: type,
+            percent: percent,
+            prediction: prediction,
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 }
 
 Future<void> takeCameraImage(BuildContext context) async {
   XFile? capturedImage =
       await imagePicker.pickImage(source: ImageSource.camera);
-  await predictAndNavigate(capturedImage, context, Types.camera);
+  if (context.mounted) {
+    await predictAndNavigate(capturedImage, context, Types.camera);
+  }
 }
 
 Future<void> takeGalleryImage(BuildContext context) async {
   XFile? capturedImage =
       await imagePicker.pickImage(source: ImageSource.gallery);
-  await predictAndNavigate(capturedImage, context, Types.gallery);
+  if (context.mounted) {
+    await predictAndNavigate(capturedImage, context, Types.gallery);
+  }
 }
 
-
-
-
+void takeVideoStream(BuildContext context) {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) => const VideoStreamPage(),
+    ),
+  );
+}

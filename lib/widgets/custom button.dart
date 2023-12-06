@@ -27,7 +27,7 @@ class CustomButton extends StatelessWidget {
                 switch(type){
                   case Types.camera: takeCameraImage(context); break;
                   case Types.gallery: takeGalleryImage(context); break;
-                  case Types.video: takeCameraImage(context); break;
+                  case Types.video: takeVideoStream(context); break;
                 }
               },
               label: Text(type == Types.camera

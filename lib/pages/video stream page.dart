@@ -5,14 +5,14 @@ import 'package:tflite_v2/tflite_v2.dart';
 
 import 'home page.dart';
 
-class StreamPage extends StatefulWidget {
-  const StreamPage({super.key});
+class VideoStreamPage extends StatefulWidget {
+  const VideoStreamPage({super.key});
 
   @override
-  State<StreamPage> createState() => _StreamPageState();
+  State<VideoStreamPage> createState() => _VideoStreamPageState();
 }
 
-class _StreamPageState extends State<StreamPage> {
+class _VideoStreamPageState extends State<VideoStreamPage> {
   late CameraController cameraController;
   CameraImage? cameraImage;
   Map output = {};
@@ -45,7 +45,7 @@ class _StreamPageState extends State<StreamPage> {
   }
 
   runModel() async {
-    var data = await Tflite.runModelOnFrame(
+    List? data = await Tflite.runModelOnFrame(
       bytesList: cameraImage!.planes.map((plane) {
         return plane.bytes;
       }).toList(),
@@ -105,7 +105,9 @@ class _StreamPageState extends State<StreamPage> {
               height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
-              'Confidence: ${(output['confidence'] ?? 0 * 100).toStringAsFixed(2)}%',
+              output['confidence'] == null
+                  ? ''
+                  : 'Confidence: ${(output['confidence'] * 100).toStringAsFixed(1)}%',
               style: const TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -124,7 +126,7 @@ class _StreamPageState extends State<StreamPage> {
                       onPressed: () {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => const HoemPage2(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       },

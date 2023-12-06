@@ -59,7 +59,7 @@ class ImageResultPage extends StatelessWidget {
               Text(
                 percent == null
                     ? ''
-                    : 'Confidence: ${(percent! * 100).toStringAsFixed(2)}%',
+                    : 'Confidence: ${(percent! * 100).toStringAsFixed(1)}%',
                 style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,

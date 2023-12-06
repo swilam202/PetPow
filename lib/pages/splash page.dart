@@ -48,7 +48,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 ).then(
                   (_) => Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => const HoemPage2(),
+                      builder: (context) => const HomePage(),
                     ),
                   ),
                 ),
@@ -59,6 +59,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFE3E3E3),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -72,10 +73,10 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             ScaleTransition(
               scale: nameAnimation,
               child: const Text(
-                'PowPuf',
+                'PetPow',
                 style: TextStyle(
                   fontSize: 40,
-                  color: Colors.white,
+                  color: Colors.teal,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -87,7 +88,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 'Pets classification app',
                 style: TextStyle(
                   fontSize: 25,
-                  color: Colors.white,
+                  color: Colors.teal,
                   fontWeight: FontWeight.w600,
                 ),
               ),

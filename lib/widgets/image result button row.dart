@@ -19,7 +19,7 @@ class ImageResultButtonRow extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => const HoemPage2(),
+                  builder: (context) => const HomePage(),
                 ),
               );
             },
