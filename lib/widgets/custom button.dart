@@ -34,16 +34,16 @@ class CustomButton extends StatelessWidget {
                   ? 'Camera'
                   : type == Types.gallery
                       ? 'Gallery'
-                      : 'Video',),
+                      : 'Video',style: TextStyle(color: Colors.white),),
               icon: Icon(
                 type == Types.camera
                     ? Icons.camera
                     : type == Types.gallery
                         ? Icons.image
-                        : Icons.video_call,
+                        : Icons.video_call,color: Colors.white,
               ),
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.teal),
+                backgroundColor: MaterialStateProperty.all(Colors.brown),
                 padding: MaterialStateProperty.all(
                   const EdgeInsets.symmetric(vertical: 12),
                 ),

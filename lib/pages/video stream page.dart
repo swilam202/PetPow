@@ -19,7 +19,6 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     initCamera();
   }
@@ -77,7 +76,7 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
                 ? Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.teal,
+                        color: Colors.brown,
                         width: 8,
                       ),
                     ),
@@ -98,7 +97,7 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
               style: const TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.w900,
-                color: Colors.teal,
+                color: Colors.brown,
               ),
             ),
             SizedBox(
@@ -111,7 +110,7 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
               style: const TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Colors.teal,
+                color: Colors.brown,
               ),
             ),
             SizedBox(
@@ -130,10 +129,10 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
                           ),
                         );
                       },
-                      label: const Text('Go to Home Page'),
-                      icon: const Icon(Icons.arrow_back_ios_new),
+                      label: const Text('Go to Home Page',style: TextStyle(color: Colors.white),),
+                      icon: const Icon(Icons.arrow_back_ios_new,color: Colors.white,),
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.teal),
+                        backgroundColor: MaterialStateProperty.all(Colors.brown),
                         padding: MaterialStateProperty.all(
                           const EdgeInsets.symmetric(vertical: 12),
                         ),

@@ -33,7 +33,7 @@ class ImageResultPage extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.teal,
+                    color: Colors.brown,
                     width: 8,
                   ),
                 ),
@@ -51,7 +51,7 @@ class ImageResultPage extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.w900,
-                    color: Colors.teal,),
+                    color: Colors.brown,),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
@@ -63,7 +63,7 @@ class ImageResultPage extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
-                    color: Colors.teal,),
+                    color: Colors.brown,),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,

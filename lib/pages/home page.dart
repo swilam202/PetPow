@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.15,
             child: Image.asset(
-              'assets/teal icon.png',
+              'assets/icon.png',
               fit: BoxFit.fill,
             ),
           ),

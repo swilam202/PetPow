@@ -23,10 +23,10 @@ class ImageResultButtonRow extends StatelessWidget {
                 ),
               );
             },
-            label: const Text('Go to Home Page'),
-            icon: const Icon(Icons.arrow_back_ios_new),
+            label: const Text('Go to Home Page',style: TextStyle(color: Colors.white,),),
+            icon: const Icon(Icons.arrow_back_ios_new,color: Colors.white,),
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.teal),
+              backgroundColor: MaterialStateProperty.all(Colors.brown),
               padding: MaterialStateProperty.all(
                 const EdgeInsets.symmetric(vertical: 16),
               ),
@@ -41,11 +41,11 @@ class ImageResultButtonRow extends StatelessWidget {
         const SizedBox(width: 20),
         Expanded(
           child: ElevatedButton.icon(
-            onPressed: () => takeCameraImage(context),
-            label: const Text('Take new Image'),
-            icon: const Icon(Icons.add),
+            onPressed: () => type == Types.camera? takeCameraImage(context):takeGalleryImage(context),
+            label: const Text('Take new Image',style: TextStyle(color: Colors.white),),
+            icon: const Icon(Icons.add,color: Colors.white,),
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.teal),
+              backgroundColor: MaterialStateProperty.all(Colors.brown),
               padding: MaterialStateProperty.all(
                 const EdgeInsets.symmetric(vertical: 16),
               ),

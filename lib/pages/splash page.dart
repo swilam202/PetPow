@@ -13,9 +13,11 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   late AnimationController nameAnimationController;
   late AnimationController titleAnimationController;
+  late AnimationController iconAnimationController;
 
   late Animation<double> nameAnimation;
   late Animation<double> titleAnimation;
+  late Animation<double> iconAnimation;
 
   @override
   void initState() {
@@ -24,50 +26,71 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   }
 
   void initAnimation() {
-    nameAnimationController = AnimationController(
+    iconAnimationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     );
+    nameAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    );
     titleAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 2500),
     );
 
     nameAnimation = CurvedAnimation(
       parent: nameAnimationController,
       curve: Curves.bounceInOut,
     );
+    iconAnimation = CurvedAnimation(
+      parent: iconAnimationController,
+      curve: Curves.bounceInOut,
+    );
     titleAnimation = CurvedAnimation(
       parent: titleAnimationController,
       curve: Curves.easeIn,
     );
-    nameAnimationController.forward().then(
-          (_) => titleAnimationController.forward().then(
-                (_) => Future.delayed(
-                  const Duration(seconds: 1),
+    iconAnimationController.forward().then(
+          (_) {
+            nameAnimationController.forward();
+            titleAnimationController.forward().then(
+                (_) {
+                  Future.delayed(
+                  const Duration(milliseconds: 800),
                 ).then(
                   (_) => Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) => const HomePage(),
                     ),
                   ),
-                ),
-              ),
+                );
+                }
+              );
+          } 
         );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE3E3E3),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/splash.gif',
-              fit: BoxFit.fill,
+            ScaleTransition(
+              scale: iconAnimation,
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.26,
+                child: AspectRatio(
+                  aspectRatio: 1.8/2,
+                  child: Image.asset(
+                    'assets/icon.png',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
             ),
             const SizedBox(height: 8),
             ScaleTransition(
@@ -76,8 +99,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 'PetPow',
                 style: TextStyle(
                   fontSize: 40,
-                  color: Colors.teal,
                   fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -88,8 +111,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                 'Pets classification app',
                 style: TextStyle(
                   fontSize: 25,
-                  color: Colors.teal,
                   fontWeight: FontWeight.w600,
+                  color: Colors.black,
                 ),
               ),
             ),
