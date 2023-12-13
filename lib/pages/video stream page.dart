@@ -1,8 +1,8 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:objectdetection/main.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
+import '../main.dart';
 import 'home page.dart';
 
 class VideoStreamPage extends StatefulWidget {
@@ -24,7 +24,7 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
   }
 
   initCamera() async {
-    cameraController = CameraController(cameras![0], ResolutionPreset.veryHigh);
+    cameraController = CameraController(cameras![0], ResolutionPreset.medium);
     cameraController.initialize().then(
       (value) {
         if (!mounted) {
@@ -87,7 +87,7 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
                 : SizedBox(
                     height: MediaQuery.of(context).size.height * 0.4,
                     width: MediaQuery.of(context).size.width * 0.8,
-                    child: const Center(child: CircularProgressIndicator()),
+                    child: const Center(child: CircularProgressIndicator(color: Colors.brown,),),
                   ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,

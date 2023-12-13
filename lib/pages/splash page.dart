@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:objectdetection/main.dart';
 
 import 'home page.dart';
 
@@ -51,24 +50,20 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       parent: titleAnimationController,
       curve: Curves.easeIn,
     );
-    iconAnimationController.forward().then(
-          (_) {
-            nameAnimationController.forward();
-            titleAnimationController.forward().then(
-                (_) {
-                  Future.delayed(
-                  const Duration(milliseconds: 800),
-                ).then(
-                  (_) => Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ),
-                  ),
-                );
-                }
-              );
-          } 
+    iconAnimationController.forward().then((_) {
+      nameAnimationController.forward();
+      titleAnimationController.forward().then((_) {
+        Future.delayed(
+          const Duration(milliseconds: 800),
+        ).then(
+          (_) => Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          ),
         );
+      });
+    });
   }
 
   @override
@@ -84,7 +79,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.26,
                 child: AspectRatio(
-                  aspectRatio: 1.8/2,
+                  aspectRatio: 1.8 / 2,
                   child: Image.asset(
                     'assets/icon.png',
                     fit: BoxFit.fill,
@@ -96,7 +91,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
             ScaleTransition(
               scale: nameAnimation,
               child: const Text(
-                'PetPow',
+                'PetAI',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,

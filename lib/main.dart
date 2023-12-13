@@ -1,18 +1,12 @@
-import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:objectdetection/pages/splash%20page.dart';
-import 'package:objectdetection/utils/functions.dart';
-import 'package:tflite_v2/tflite_v2.dart';
 
-import 'pages/home page.dart';
-import 'pages/video stream page.dart';
+import 'pages/splash page.dart';
+import 'utils/functions.dart';
 
 List<CameraDescription>? cameras;
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
   await loadModel();
@@ -34,6 +28,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-

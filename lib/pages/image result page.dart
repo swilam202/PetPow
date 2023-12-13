@@ -1,9 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:objectdetection/utils/types.dart';
-import 'package:objectdetection/widgets/custom%20button.dart';
 
+import '../utils/types.dart';
 import '../widgets/image result button row.dart';
 
 class ImageResultPage extends StatelessWidget {
@@ -14,10 +13,12 @@ class ImageResultPage extends StatelessWidget {
     required this.prediction,
     this.percent,
   });
+
   final File image;
   final Types type;
   final String prediction;
   final double? percent;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,9 +50,10 @@ class ImageResultPage extends StatelessWidget {
               Text(
                 prediction,
                 style: const TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.brown,),
+                  fontSize: 35,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.brown,
+                ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
@@ -61,9 +63,10 @@ class ImageResultPage extends StatelessWidget {
                     ? ''
                     : 'Confidence: ${(percent! * 100).toStringAsFixed(1)}%',
                 style: const TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.brown,),
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.brown,
+                ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,

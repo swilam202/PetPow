@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:objectdetection/utils/types.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
 import '../pages/image result page.dart';
 import '../pages/video stream page.dart';
+import 'types.dart';
 
 final ImagePicker imagePicker = ImagePicker();
 
@@ -17,7 +17,6 @@ Future<void> loadModel() async {
     isAsset: true,
   );
 }
-//[{confidence: 1.0, index: 1, label: 1 Cat}]
 
 Future<void> predictAndNavigate(
     XFile? capturedImage, BuildContext context, Types type) async {
