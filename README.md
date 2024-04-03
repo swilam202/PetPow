@@ -1,16 +1,5 @@
-# objectdetection
+PetAI is a app uses machine learning algorithms, PetAI offers classification By simply uploading a photo, take camera image or video stream users can quickly determine cat or dog
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_2024-04-03-13-09-04-96_254de13a4bc8758c9908fff1f73e3725](https://github.com/swilam202/PetAI/assets/123952365/7898210d-106e-4165-b768-2beb6d2dee97)
+![Screenshot_2024-04-03-13-09-44-71_254de13a4bc8758c9908fff1f73e3725](https://github.com/swilam202/PetAI/assets/123952365/58abe447-e103-45b4-bd06-22baff3b1e11)
+![Screenshot_2024-04-03-13-09-22-41_254de13a4bc8758c9908fff1f73e3725](https://github.com/swilam202/PetAI/assets/123952365/d3233684-f1e3-4d5f-98b1-4e9823286da5)
